@@ -23,5 +23,12 @@ Route::get('/',[ExemploController::class ,'index']);
 
 Route::get('/musicas',[PlayerController::class ,'index']);
 
+Route::put('/musicas/atualizar/{id}',[PlayerController::class ,'atualizar']);
+Route::delete('/musicas/deletar/{id}',[PlayerController::class ,'deletar']);
+Route::get('/musicas/{id}',[PlayerController::class ,'buscar']);
+
+
+
+
 
 

@@ -47,7 +47,7 @@ php artisan migrate
 ### Acessando a ROTA (Trocar {rota} pelo nome da rota criado)
 
 ```bash
-localhost/api/{rota}
+localhost/api/musicas/deletar/{id}
 ```
 
 

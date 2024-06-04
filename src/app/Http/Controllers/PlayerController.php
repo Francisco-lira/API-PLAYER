@@ -43,31 +43,45 @@ class PlayerController extends Controller
         //     $lista->delete();
         // }
 
-        //Atualizar por id
-        $lista = Musicas::find(2);
+       
+        return response()->json($lista);
 
-        if(!$lista){
-            return response()->json(['error' => 'Registro não encontrado'], 404);
-        }
+    }
 
-        $lista->title = "mudando o titulo da musica";
-        $lista->save();
-
-
-        //Buscar todos
-        $lista = Musicas::all();
+    public function buscar($id){
+        $lista = Musicas::find($id);
 
         return response()->json($lista);
 
     }
 
-    public function buscar(){}
-
     public function salvar(){}
 
-    public function atualizar(){}
+    public function atualizar($id){
+        $lista = Musicas::find($id);
 
-    public function deletar(){}
+        if(!$lista){
+            return response()->json(['error' => 'Registro não encontrado'], 404);
+        }
+
+        $lista->title = "Snuff";
+        $lista->artist = "Corey Talor";
+        $lista->imageUrl = "https://github.com/Francisco-lira/Player-musica-js/blob/main/imagens/snuff.jpg";
+        $lista->audioUrl = "https://github.com/Francisco-lira/Player-musica-js/blob/main/musicas/Corey%20Taylor%20-%20Snuff.mp3";
+        $lista->save();
+    }
+
+    public function deletar($id){
+        $lista = Musicas::find($id);
+        if($lista){
+                $lista->delete();
+                if(!$lista){
+                    return response()->json(['sucess' => 'registro deletado']);
+                }
+             }
+
+
+    }
 
 
   }
